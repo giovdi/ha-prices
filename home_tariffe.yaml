@@ -2,6 +2,7 @@ blueprint:
   name: "Electricity tariffs"
   description: "Electricity price tariffs"
   source_url: https://github.com/giovdi/ha-prices/edit/main/home_tariffe.yaml
+  domain: automation
   input:
     tariff_f1:
       name: "F1 tariff amount"
