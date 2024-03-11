@@ -62,94 +62,105 @@ variables:
 ## F1（08-19)
 ## F2（mon 07-08, 19-23 - sat 07-23)
 ## F3（mon-sat 00-07, 23-24 - sun 00-24)
-automation:
-  trigger:
-    - platform: time
-      at: "00:00:00"
-      variables:
-        tariff: "F3"
-    - platform: time
-      at: "07:00:00"
-      variables:
-        tariff: "F2"
-    - platform: time
-      at: "08:00:00"
-      variables:
-        tariff: "F1"
-    - platform: time
-      at: "19:00:00"
-      variables:
-        tariff: "F2"
-    - platform: time
-      at: "23:00:00"
-      variables:
-        tariff: "F3"
-  condition:
-      condition: time
-      weekday:
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
-  action:
-    - service: select.select_option
+trigger:
+  - platform: time
+    at: "00:00:00"
+    id: "t_slot_a1"
+  - platform: time
+    at: "07:00:00"
+    id: "t_slot_a2"
+  - platform: time
+    at: "08:00:00"
+    id: "t_slot_a3"
+  - platform: time
+    at: "19:00:00"
+    id: "t_slot_a4"
+  - platform: time
+    at: "23:00:00"
+    id: "t_slot_a5"
+condition:
+action:
+  - if:
+      - condition: trigger
+        id:
+          - "t_slot_a1"
+    then:
+      service: select.select_option
       target:
         entity_id: select.daily_energy
       data:
-        option: "{{ tariff }}"
-    - service: select.select_option
-      target:
-        entity_id: select.monthly_energy
-      data:
-        option: "{{ tariff }}"
-automation 2:
-  trigger:
-    - platform: time
-      at: "00:00:00"
-      variables:
-        tariff: "F3"
-    - platform: time
-      at: "07:00:00"
-      variables:
-        tariff: "F2"
-    - platform: time
-      at: "23:00:00"
-      variables:
-        tariff: "F3"
-  condition:
-      condition: time
-      weekday:
-      - sat
-  action:
-    - service: select.select_option
+        option: F3
+        
+  - if:
+      - condition: trigger
+        id:
+          - "t_slot_a2"
+      - condition: time
+        weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+        - sat
+    then:
+      service: select.select_option
       target:
         entity_id: select.daily_energy
       data:
-        option: "{{ tariff }}"
-    - service: select.select_option
-      target:
-        entity_id: select.monthly_energy
-      data:
-        option: "{{ tariff }}"
-automation 3:
-  trigger:
-    - platform: time
-      at: "00:00:00"
-      variables:
-        tariff: "F3"
-  condition:
-      condition: time
-      weekday:
-      - sun
-  action:
-    - service: select.select_option
+        option: F2
+        
+  - if:
+      - condition: trigger
+        id:
+          - "t_slot_a3"
+      - condition: time
+        weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+    then:
+      service: select.select_option
       target:
         entity_id: select.daily_energy
       data:
-        option: "{{ tariff }}"
-    - service: select.select_option
+        option: F1
+        
+  - if:
+      - condition: trigger
+        id:
+          - "t_slot_a4"
+      - condition: time
+        weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+    then:
+      service: select.select_option
       target:
-        entity_id: select.monthly_energy
+        entity_id: select.daily_energy
       data:
-        option: "{{ tariff }}"
+        option: F2
+        
+  - if:
+      - condition: trigger
+        id:
+          - "t_slot_a4"
+      - condition: time
+        weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+        - sat
+    then:
+      service: select.select_option
+      target:
+        entity_id: select.daily_energy
+      data:
+        option: F3
