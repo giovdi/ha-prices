@@ -1,45 +1,45 @@
 blueprint:
   name: "Electricity tariffs"
-  description: "Electricity price tariffs"
+  description: "Electricity price tariffs based on time bands"
   source_url: https://github.com/giovdi/ha-prices/edit/main/home_tariffe.yaml
   domain: automation
+  mode: restart
+  max_exceeded: silent
+
   input:
     tariff_f1:
-      name: "F1 tariff amount"
-      description: "High peak tarif"
+      name: F1 tariff amount
+      description: Peak hours tariff
       default: 0.20
       selector:
         number:
           min: 0.0
           max: 3.0
-          unit_of_measurement: "EUR"
+          unit_of_measurement: EUR
           step: 0.01
           mode: slider
     tariff_f2:
-      name: "F2 tariff amount"
-      description: "Mid peak tarif"
+      name: F2 tariff amount
+      description: Standard hours tariff
       default: 0.20
       selector:
         number:
           min: 0.0
           max: 3.0
-          unit_of_measurement: "EUR"
+          unit_of_measurement: EUR
           step: 0.01
           mode: slider
     tariff_f3:
-      name: "F3 tariff amount"
-      description: "Low peak tarif"
+      name: F3 tariff amount
+      description: Off-peak hours tariff
       default: 0.20
       selector:
         number:
           min: 0.0
           max: 3.0
-          unit_of_measurement: "EUR"
+          unit_of_measurement: EUR
           step: 0.01
           mode: slider
-
-mode: restart
-max_exceeded: silent
 
 variables:
   tariff_f1: !input tariff_f1
