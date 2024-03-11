@@ -3,8 +3,6 @@ blueprint:
   description: "Electricity price tariffs based on time bands"
   source_url: https://github.com/giovdi/ha-prices/edit/main/home_tariffe.yaml
   domain: automation
-  mode: restart
-  max_exceeded: silent
 
   input:
     tariff_f1:
@@ -40,6 +38,9 @@ blueprint:
           unit_of_measurement: EUR
           step: 0.01
           mode: slider
+
+mode: restart
+max_exceeded: silent
 
 variables:
   tariff_f1: !input tariff_f1
