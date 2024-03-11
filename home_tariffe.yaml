@@ -78,7 +78,6 @@ trigger:
   - platform: time
     at: "23:00:00"
     id: "t_slot_a5"
-condition:
 action:
   - if:
       - condition: trigger
