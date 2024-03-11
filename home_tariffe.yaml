@@ -57,30 +57,6 @@ variables:
     {% else %}
       0
     {% endif %}
-    
-utility_meter:
-  meter_energy_daily:
-    source: sensor.meter_importenergy
-    cycle: daily
-  meter_energy_monthly:
-    source: sensor.meter_importenergy
-    cycle: monthly
-  daily_energy:
-    source: sensor.meter_importenergy
-    name: Daily Energy
-    cycle: daily
-    tariffs:
-      - F1
-      - F2
-      - F3
-  monthly_energy:
-    source: sensor.meter_importenergy
-    name: Monthly Energy
-    cycle: monthly
-    tariffs:
-      - F1
-      - F2
-      - F3
       
 ## time：
 ## F1（08-19)
