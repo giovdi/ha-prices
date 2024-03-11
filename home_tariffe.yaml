@@ -126,7 +126,7 @@ automation:
         entity_id: select.monthly_energy
       data:
         option: "{{ tariff }}"
-automation:
+automation 2:
   trigger:
     - platform: time
       at: "00:00:00"
@@ -155,7 +155,7 @@ automation:
         entity_id: select.monthly_energy
       data:
         option: "{{ tariff }}"
-automation:
+automation 3:
   trigger:
     - platform: time
       at: "00:00:00"
