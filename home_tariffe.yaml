@@ -38,7 +38,7 @@ blueprint:
           unit_of_measurement: EUR
           step: 0.01
           mode: slider
-
+          
 mode: restart
 max_exceeded: silent
 
