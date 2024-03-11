@@ -148,7 +148,7 @@ action:
   - if:
       - condition: trigger
         id:
-          - "t_slot_a4"
+          - "t_slot_a5"
       - condition: time
         weekday:
         - mon
