@@ -1,6 +1,6 @@
 blueprint:
   name: "Electricity tariffs"
-  description: "Electricity price tariffs based on time bands. Before setting up the automation, create a unit meter for each device you'd like to track and three helpers with the cost for the Peak, Standard and Off-peak hours tariffs."
+  description: "Electricity price tariffs based on time bands. Before setting up the automation, create a unit meter for each device you'd like to track, with F1, F2 and F3 tariffs, and three helpers with the cost for the Peak, Standard and Off-peak hours tariffs."
   source_url: https://github.com/giovdi/ha-prices/edit/main/home_tariffe.yaml
   domain: automation
 
@@ -76,7 +76,7 @@ action:
     then:
       service: select.select_option
       target:
-        entity_id: select.daily_energy
+        entity_id: !input tariff_entities
       data:
         option: F3
         
@@ -95,7 +95,7 @@ action:
     then:
       service: select.select_option
       target:
-        entity_id: select.daily_energy
+        entity_id: !input tariff_entities
       data:
         option: F2
         
@@ -113,7 +113,7 @@ action:
     then:
       service: select.select_option
       target:
-        entity_id: select.daily_energy
+        entity_id: !input tariff_entities
       data:
         option: F1
         
@@ -131,7 +131,7 @@ action:
     then:
       service: select.select_option
       target:
-        entity_id: select.daily_energy
+        entity_id: !input tariff_entities
       data:
         option: F2
         
@@ -150,6 +150,6 @@ action:
     then:
       service: select.select_option
       target:
-        entity_id: select.daily_energy
+        entity_id: !input tariff_entities
       data:
         option: F3
