@@ -1,43 +1,33 @@
 blueprint:
   name: "Electricity tariffs"
-  description: "Electricity price tariffs based on time bands"
+  description: "Electricity price tariffs based on time bands. Before setting up the automation, create a unit meter for each device you'd like to track and three helpers with the cost for the Peak, Standard and Off-peak hours tariffs."
   source_url: https://github.com/giovdi/ha-prices/edit/main/home_tariffe.yaml
   domain: automation
 
   input:
+    tariff_entities:
+      name: Unit meters to automate
+      description: Select all the Unit meters to automate
+      selector:
+        entity:
+          multiple: true
+          filter:
+            domain: unit_meter
     tariff_f1:
-      name: F1 tariff amount
-      description: Peak hours tariff
-      default: 0.20
+      name: Peak hours tariff helper
+      description: Helper with the cost related to the Peak hours tariff (F1: mon-fri 08-19)
       selector:
-        number:
-          min: 0.0
-          max: 3.0
-          unit_of_measurement: EUR
-          step: 0.01
-          mode: slider
+        entity:
     tariff_f2:
-      name: F2 tariff amount
-      description: Standard hours tariff
-      default: 0.20
+      name: Standard hours tariff helper
+      description: Helper with the cost related to the Standard hours tariff (F2: mon-fri 07-08, 19-23 - sat 07-23)
       selector:
-        number:
-          min: 0.0
-          max: 3.0
-          unit_of_measurement: EUR
-          step: 0.01
-          mode: slider
+        entity:
     tariff_f3:
-      name: F3 tariff amount
-      description: Off-peak hours tariff
-      default: 0.20
+      name: Off-peak hours tariff helper
+      description: Helper with the cost related to the Off-peak hours tariff (F3: mon-sat 00-07, 23-24 - sun 00-24)
       selector:
-        number:
-          min: 0.0
-          max: 3.0
-          unit_of_measurement: EUR
-          step: 0.01
-          mode: slider
+        entity:
           
 mode: restart
 max_exceeded: silent
