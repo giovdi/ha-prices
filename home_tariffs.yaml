@@ -8,6 +8,7 @@ blueprint:
     tariff_entities:
       name: "Unit meters to automate"
       description: "Select all the Unit meters to automate"
+      default: []
       selector:
         entity:
           multiple: true
