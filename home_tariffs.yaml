@@ -6,26 +6,26 @@ blueprint:
 
   input:
     tariff_entities:
-      name: Unit meters to automate
-      description: Select all the Unit meters to automate
+      name: "Unit meters to automate"
+      description: "Select all the Unit meters to automate"
       selector:
         entity:
           multiple: true
           filter:
             domain: unit_meter
     tariff_f1:
-      name: Peak hours tariff helper
-      description: Helper with the cost related to the Peak hours tariff (F1: mon-fri 08-19)
+      name: "Peak hours tariff helper"
+      description: "Helper with the cost related to the Peak hours tariff (F1: mon-fri 08-19)"
       selector:
         entity:
     tariff_f2:
-      name: Standard hours tariff helper
-      description: Helper with the cost related to the Standard hours tariff (F2: mon-fri 07-08, 19-23 - sat 07-23)
+      name: "Standard hours tariff helper"
+      description: "Helper with the cost related to the Standard hours tariff (F2: mon-fri 07-08, 19-23 - sat 07-23)"
       selector:
         entity:
     tariff_f3:
-      name: Off-peak hours tariff helper
-      description: Helper with the cost related to the Off-peak hours tariff (F3: mon-sat 00-07, 23-24 - sun 00-24)
+      name: "Off-peak hours tariff helper"
+      description: "Helper with the cost related to the Off-peak hours tariff (F3: mon-sat 00-07, 23-24 - sun 00-24)"
       selector:
         entity:
           
