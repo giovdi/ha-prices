@@ -18,16 +18,22 @@ blueprint:
       description: "Helper with the cost related to the Peak hours tariff (F1 - mon-fri 08-19)"
       selector:
         entity:
+          filter:
+            domain: input_number
     tariff_f2:
       name: "Standard hours tariff helper"
       description: "Helper with the cost related to the Standard hours tariff (F2 - mon-fri 07-08, 19-23 - sat 07-23)"
       selector:
         entity:
+          filter:
+            domain: input_number
     tariff_f3:
       name: "Off-peak hours tariff helper"
       description: "Helper with the cost related to the Off-peak hours tariff (F3 - mon-sat 00-07, 23-24 - sun 00-24)"
       selector:
         entity:
+          filter:
+            domain: input_number
           
 mode: restart
 max_exceeded: silent
