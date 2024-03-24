@@ -44,13 +44,16 @@ action:
         id:
           - "t_slot_a1"
     then:
-      service: select.select_option
-      target:
-        entity_id:
-          - !input tariff_entities
-          - input_select.tariff_current_band
-      data:
-        option: F3
+      - service: select.select_option
+        target:
+          entity_id: !input tariff_entities
+        data:
+          option: F3
+      - service: select.select_option
+        target:
+          entity_id: input_select.tariff_current_band
+        data:
+          option: F3
         
   - if:
       - condition: trigger
@@ -65,13 +68,16 @@ action:
         - fri
         - sat
     then:
-      service: select.select_option
-      target:
-        entity_id:
-          - !input tariff_entities
-          - input_select.tariff_current_band
-      data:
-        option: F2
+      - service: select.select_option
+        target:
+          entity_id: !input tariff_entities
+        data:
+          option: F2
+      - service: select.select_option
+        target:
+          entity_id: input_select.tariff_current_band
+        data:
+          option: F2
         
   - if:
       - condition: trigger
@@ -85,13 +91,16 @@ action:
         - thu
         - fri
     then:
-      service: select.select_option
-      target:
-        entity_id:
-          - !input tariff_entities
-          - input_select.tariff_current_band
-      data:
-        option: F1
+      - service: select.select_option
+        target:
+          entity_id: !input tariff_entities
+        data:
+          option: F1
+      - service: select.select_option
+        target:
+          entity_id: input_select.tariff_current_band
+        data:
+          option: F1
         
   - if:
       - condition: trigger
@@ -105,13 +114,16 @@ action:
         - thu
         - fri
     then:
-      service: select.select_option
-      target:
-        entity_id:
-          - !input tariff_entities
-          - input_select.tariff_current_band
-      data:
-        option: F2
+      - service: select.select_option
+        target:
+          entity_id: !input tariff_entities
+        data:
+          option: F2
+      - service: select.select_option
+        target:
+          entity_id: input_select.tariff_current_band
+        data:
+          option: F2
         
   - if:
       - condition: trigger
@@ -126,10 +138,13 @@ action:
         - fri
         - sat
     then:
-      service: select.select_option
-      target:
-        entity_id:
-          - !input tariff_entities
-          - input_select.tariff_current_band
-      data:
-        option: F3
+      - service: select.select_option
+        target:
+          entity_id: !input tariff_entities
+        data:
+          option: F3
+      - service: select.select_option
+        target:
+          entity_id: input_select.tariff_current_band
+        data:
+          option: F3
