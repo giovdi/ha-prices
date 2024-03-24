@@ -13,7 +13,8 @@ blueprint:
         entity:
           multiple: true
           filter:
-            domain: unit_meter
+            integration: utility_meter
+            domain: sensor
           
 mode: restart
 max_exceeded: silent
