@@ -14,7 +14,7 @@ blueprint:
           multiple: true
           filter:
             integration: utility_meter
-            domain: sensor
+            domain: select
           
 mode: restart
 max_exceeded: silent
