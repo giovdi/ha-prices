@@ -64,7 +64,7 @@ action:
           entity_id: !input tariff_entities
         data:
           option: F3
-      - service: select.select_option
+      - service: input_select.select_option
         target:
           entity_id: !input tariff_current_band
         data:
@@ -88,7 +88,7 @@ action:
           entity_id: !input tariff_entities
         data:
           option: F2
-      - service: select.select_option
+      - service: input_select.select_option
         target:
           entity_id: !input tariff_current_band
         data:
@@ -111,7 +111,7 @@ action:
           entity_id: !input tariff_entities
         data:
           option: F1
-      - service: select.select_option
+      - service: input_select.select_option
         target:
           entity_id: !input tariff_current_band
         data:
@@ -134,7 +134,7 @@ action:
           entity_id: !input tariff_entities
         data:
           option: F2
-      - service: select.select_option
+      - service: input_select.select_option
         target:
           entity_id: !input tariff_current_band
         data:
@@ -158,7 +158,7 @@ action:
           entity_id: !input tariff_entities
         data:
           option: F3
-      - service: select.select_option
+      - service: input_select.select_option
         target:
           entity_id: !input tariff_current_band
         data:
