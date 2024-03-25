@@ -170,4 +170,4 @@ action:
         target:
           entity_id: !input tariff_entities
         data:
-          entity_id: !input tariff_current_band
+          option: {{ states(!input tariff_current_band) }}
