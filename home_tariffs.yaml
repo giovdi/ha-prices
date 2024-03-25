@@ -7,7 +7,7 @@ blueprint:
   input:
     tariff_current_band:
       name: "Tariff Current Band"
-      description: "Selector that will handle the current tariff band"
+      description: "Selector that will handle the current tariff band. This will help to change all the unit meters in one click by this selector."
       default: {}
       selector:
         entity:
@@ -15,7 +15,7 @@ blueprint:
             domain: input_select
     tariff_entities:
       name: "Unit meters to automate"
-      description: "Select all the Unit meters to automate"
+      description: "Select all the Unit meters to automate."
       default: []
       selector:
         entity:
@@ -47,6 +47,9 @@ trigger:
   - platform: time
     at: "23:00:00"
     id: "t_slot_a5"
+  - platform: state
+    id: "t_manual"
+    entity_id: !input tariff_current_band
 action:
   - if:
       - condition: trigger
@@ -157,3 +160,14 @@ action:
           entity_id: !input tariff_current_band
         data:
           option: F3
+        
+  - if:
+      - condition: trigger
+        id:
+          - "t_manual"
+    then:
+      - service: select.select_option
+        target:
+          entity_id: !input tariff_entities
+        data:
+          entity_id: !input tariff_current_band
