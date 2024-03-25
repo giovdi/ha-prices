@@ -8,6 +8,7 @@ blueprint:
     tariff_current_band:
       name: "Tariff Current Band"
       description: "Selector that will handle the current tariff band"
+      default: {}
       selector:
         entity:
           filter:
