@@ -5,6 +5,13 @@ blueprint:
   domain: automation
 
   input:
+    tariff_current_band:
+      name: "Tariff Current Band"
+      description: "Selector that will handle the current tariff band"
+      selector:
+        entity:
+          filter:
+            domain: input_select
     tariff_entities:
       name: "Unit meters to automate"
       description: "Select all the Unit meters to automate"
@@ -52,7 +59,7 @@ action:
           option: F3
       - service: select.select_option
         target:
-          entity_id: input_select.tariff_current_band
+          entity_id: !input tariff_current_band
         data:
           option: F3
         
@@ -76,7 +83,7 @@ action:
           option: F2
       - service: select.select_option
         target:
-          entity_id: input_select.tariff_current_band
+          entity_id: !input tariff_current_band
         data:
           option: F2
         
@@ -99,7 +106,7 @@ action:
           option: F1
       - service: select.select_option
         target:
-          entity_id: input_select.tariff_current_band
+          entity_id: !input tariff_current_band
         data:
           option: F1
         
@@ -122,7 +129,7 @@ action:
           option: F2
       - service: select.select_option
         target:
-          entity_id: input_select.tariff_current_band
+          entity_id: !input tariff_current_band
         data:
           option: F2
         
@@ -146,6 +153,6 @@ action:
           option: F3
       - service: select.select_option
         target:
-          entity_id: input_select.tariff_current_band
+          entity_id: !input tariff_current_band
         data:
           option: F3
