@@ -26,6 +26,9 @@ blueprint:
           
 mode: restart
 max_exceeded: silent
+
+variables:
+  tariff_current_band: !input tariff_current_band
       
 ## time：
 ## F1（08-19)
@@ -170,4 +173,4 @@ action:
         target:
           entity_id: !input tariff_entities
         data:
-          option: {{ states(!input tariff_current_band) }}
+          option: "{{ states(tariff_current_band) }}"
