@@ -8,7 +8,7 @@ blueprint:
     tariff_current_band:
       name: "Tariff Current Band"
       description: "Selector that will handle the current tariff band. This will help to change all the unit meters in one click by this selector."
-      default: {}
+      default:
       selector:
         entity:
           filter:
