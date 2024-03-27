@@ -88,7 +88,7 @@ Now you can add all the Unit meters to Home Assistnat through the helpers' page 
 
 **Don't forget to set _F1_, _F2_ and _F3_ as tariffs on each meter!**
 
-#### One or few devices
+#### - One or few devices
 
 If you have a small bunch of devices, you may prefer adding all of them to the Energy Panel.
 
@@ -114,14 +114,16 @@ Remove the `unit_meter:` root in this case.
 
 If you configure the Unit meters by YALM, restart the Home Assistant.
 
-#### Multiple devices
+#### - Multiple devices
 
 If you, like me, have dozens of Shelly active, you may prefer using a single Unit meter to keep track of the consumption and then a sensor for each device.
 
 Unfortunately, at this time (2023.04) it's not possible to track single devices without adding them to the Energy Panel.  
-But I have a good workaround, have a look to the [![giovdi - ha-energy-cost](https://img.shields.io/static/v1?label=giovdi&message=ha-energy-cost&color=blue&logo=github)](https://github.com/giovdi/ha-energy-cost) Blueprint.
+But I have a good workaround, have a look at the [![giovdi - ha-electricity-cost](https://img.shields.io/static/v1?label=giovdi&message=ha-electricity-cost&color=blue&logo=github)](https://github.com/giovdi/ha-electricity-cost) Blueprint.
 
-It this fits you, you can use the following YAML to set up a single counter for all the devices.
+If this fits you, you can use the following YAML to set up a single counter for all the devices:
+
+TODO
 
 ### 4. Set up the integration
 
@@ -131,4 +133,10 @@ Add this integration to your Home Assistant, using this button:
 
 Finally, set up the automation and you're ready to go!
 
-### 5. Add meters
+### 5. Add meters to the Energy Panel
+
+Now you can track your consumption and your energy footprint with the Energy Panel!
+
+## Issues or suggestions?
+
+Feel free to open an Issue of fork this Blueprint to improve it!
