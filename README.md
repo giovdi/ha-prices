@@ -90,9 +90,9 @@ Now you can add all the Unit meters to Home Assistnat through the helpers' page 
 
 #### - One or few devices
 
-If you have a small bunch of devices, you may prefer adding all of them to the Energy Panel.
+With a small bunch of devices, you may prefer adding all of them to the Energy Panel (I suggest no more than 3) directly as Helpers.
 
-If you'd like to set up the Unit meters through YAML, use the following example:
+If you like to set up the Unit meters through YAML, use the following example:
 
 ```
 unit_meter:
@@ -108,7 +108,7 @@ unit_meter:
     always_available: true
 ```
 
-If you have so many Unit meters, you can use a separate `utility_meters.yaml` file and import it into `configuration.yaml` with this directive:  
+You can also separate them from the configuration to a `utility_meters.yaml` file and import it into `configuration.yaml` with this directive:  
 `utility_meter: !include utility_meters.yaml`.  
 Remove the `unit_meter:` root in this case.
 
@@ -123,7 +123,41 @@ But I have a good workaround, have a look at the [![giovdi - ha-electricity-cost
 
 If this fits you, you can use the following YAML to set up a single counter for all the devices:
 
-TODO
+
+**Total Consumption sensor**: to keep track of the whole energy consumption
+```
+sensor:
+  - platform: template
+    sensors:
+     shelly_energy_total:
+        friendly_name: Energy Consumption Total
+        unique_id: shelly_energy_total
+        unit_of_measurement: kWh
+        device_class: energy
+        value_template: >
+          {% set ns = namespace(states=[]) %}
+          {% for s in states.sensor %}
+            {% if s.object_id.startswith('shelly') and s.object_id.endswith('_energy') and has_value(s.entity_id) %}
+              {% set ns.states = ns.states + [ states(s.entity_id) | float ] %}
+            {% endif %}
+          {% endfor %}
+          {{ ns.states | sum | round(2) }}
+```
+
+**Global Unit Meter**: to count everything
+```
+unit_meter:
+  meter_total:
+    unique_id: meter_total
+    name: Counter Energy Total
+    source: sensor.shelly_energy_total
+    cycle: monthly
+    tariffs:
+      - F1
+      - F2
+      - F3
+    always_available: true
+```
 
 ### 4. Set up the integration
 
