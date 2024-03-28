@@ -124,7 +124,7 @@ But I have a good workaround, have a look at the [![giovdi - ha-electricity-cost
 If this fits you, you can use the following YAML to set up a single counter for all the devices:
 
 
-**Total Consumption sensor**: to keep track of the whole energy consumption
+**Total Consumption sensor**: to keep track of the whole energy consumption (here's an example with Shellies, feel free to adjust the template value with your devices)
 ```
 sensor:
   - platform: template
