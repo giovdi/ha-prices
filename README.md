@@ -165,11 +165,17 @@ Add this integration to your Home Assistant, using this button:
 
 [![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fgiovdi%2Fha-prices%2Fedit%2Fmain%2Fhome_tariffs.yaml)
 
-Finally, set up the automation and you're ready to go!
+Now you can set up the automation and tracking is ready to go!
 
 ### 5. Add meters to the Energy Panel
 
-Now you can track your consumption and your energy footprint with the Energy Panel!
+At last, you can add the counters to track consumptions and your energy footprint with the Energy Panel!
+
+Here's an example of the Energy Panel configured with the _Multiple devices_ option:
+
+// IMAGE 1
+
+// IMAGE 2
 
 ## Issues or suggestions?
 
