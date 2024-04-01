@@ -159,6 +159,7 @@ utility_meter:
       - F3
     always_available: true
 ```
+⚠️ Do not name this Utility meter sensor starting with meter_, otherwise it'll be included in the shelly_energy_total!
 
 ### 4. Set up the integration
 
