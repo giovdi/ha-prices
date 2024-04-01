@@ -1,6 +1,11 @@
 # Home Assistant Blueprint - Italian electricity tariffs
 
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+![Project stage: Beta](https://img.shields.io/badge/project%20stage-beta-blue.svg)
+
+⚠️ THIS BLUEPRINT IS IN BETA STAGE - I started testing this Blueprint on my Home Assistant at the end of March 2024, and tests will last for at least a couple of months. Feel free to test this on your own, but by using this Blueprint you accept the risk of unexpected results, and Unit Meters and Electricity Panel reset. Thanks for understanding!
+
+ℹ️ This Blueprint is developed and based on Shelly devices, but it fits every meter.
 
 ## Setup
 
@@ -84,15 +89,11 @@ Shortcut:
 
 ### 3. Add Unit meters
 
-Now you can add all the Unit meters to Home Assistnat through the helpers' page to automate them.
+Now you can add all the Unit meters to Home Assistant through the helpers' page to automate them.
 
 **Don't forget to set _F1_, _F2_ and _F3_ as tariffs on each meter!**
 
-#### - One or few devices
-
-With a small bunch of devices, you may prefer adding all of them to the Energy Panel (I suggest no more than 3) directly as Helpers.
-
-If you like to set up the Unit meters through YAML, use the following example:
+If you have multiple Unit meters to set, you may find it easier to set up them through YAML. Use the following example:
 
 ```
 unit_meter:
@@ -137,7 +138,7 @@ sensor:
         value_template: >
           {% set ns = namespace(states=[]) %}
           {% for s in states.sensor %}
-            {% if s.object_id.startswith('shelly') and s.object_id.endswith('_energy') and has_value(s.entity_id) %}
+            {% if s.object_id.startswith('meter') and (s.object_id.endswith('_f1') or s.object_id.endswith('_f2') or s.object_id.endswith('_f3')) %}
               {% set ns.states = ns.states + [ states(s.entity_id) | float ] %}
             {% endif %}
           {% endfor %}
