@@ -3,7 +3,7 @@
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 ![Project stage: Beta](https://img.shields.io/badge/project%20stage-beta-blue.svg)
 
-⚠️ THIS BLUEPRINT IS IN BETA STAGE - I started testing this Blueprint on my Home Assistant at the end of March 2024, and tests will last for at least a couple of months. Feel free to test this on your own, but by using this Blueprint you accept the risk of unexpected results, and Unit Meters and Electricity Panel reset. Thanks for understanding!
+⚠️ THIS BLUEPRINT IS IN BETA STAGE - I started testing this Blueprint on my Home Assistant at the end of March 2024, and tests will last for at least a couple of months. Feel free to test this on your own, but by using this Blueprint you accept the risk of unexpected results, and Utility Meters and Electricity Panel reset. Thanks for understanding!
 
 ℹ️ This Blueprint is developed and based on Shelly devices, but it fits every meter.
 
@@ -87,16 +87,16 @@ Shortcut:
 
 [![Open your Home Assistant instance and show your helper entities.](https://my.home-assistant.io/badges/helpers.svg)](https://my.home-assistant.io/redirect/helpers/)
 
-### 3. Add Unit meters
+### 3. Add Utility meters
 
-Now you can add all the Unit meters to Home Assistant through the helpers' page to automate them.
+Now you can add all the Utility meters to Home Assistant through the helpers' page to automate them.
 
 **Don't forget to set _F1_, _F2_ and _F3_ as tariffs on each meter!**
 
-If you have multiple Unit meters to set, you may find it easier to set up them through YAML. Use the following example:
+If you have multiple Utility meters to set, you may find it easier to set up them through YAML. Use the following example:
 
 ```
-unit_meter:
+utility_meter:
   meter_tv:
     unique_id: meter_tv
     name: Counter TV
@@ -111,13 +111,13 @@ unit_meter:
 
 You can also separate them from the configuration to a `utility_meters.yaml` file and import it into `configuration.yaml` with this directive:  
 `utility_meter: !include utility_meters.yaml`.  
-Remove the `unit_meter:` root in this case.
+Remove the `utility_meter:` root in this case.
 
-If you configure the Unit meters by YALM, restart the Home Assistant.
+If you configure the Utility meters by YALM, restart the Home Assistant.
 
 #### - Multiple devices
 
-If you, like me, have dozens of Shelly active, you may prefer using a single Unit meter to keep track of the consumption and then a sensor for each device.
+If you, like me, have dozens of Shelly active, you may prefer using a single Utility meter to keep track of the consumption and then a sensor for each device.
 
 Unfortunately, at this time (2023.04) it's not possible to track single devices without adding them to the Energy Panel.  
 But I have a good workaround, have a look at the [![giovdi - ha-electricity-cost](https://img.shields.io/static/v1?label=giovdi&message=ha-electricity-cost&color=blue&logo=github)](https://github.com/giovdi/ha-electricity-cost) Blueprint.
@@ -138,18 +138,18 @@ sensor:
         value_template: >
           {% set ns = namespace(states=[]) %}
           {% for s in states.sensor %}
-            {% if s.object_id.startswith('meter') and (s.object_id.endswith('_f1') or s.object_id.endswith('_f2') or s.object_id.endswith('_f3')) %}
+            {% if s.object_id.startswith('meter_') and (s.object_id.endswith('_f1') or s.object_id.endswith('_f2') or s.object_id.endswith('_f3')) %}
               {% set ns.states = ns.states + [ states(s.entity_id) | float ] %}
             {% endif %}
           {% endfor %}
           {{ ns.states | sum | round(2) }}
 ```
 
-**Global Unit Meter**: to count everything
+**Global Utility Meter**: to count everything
 ```
-unit_meter:
-  meter_total:
-    unique_id: meter_total
+utility_meter:
+  energy_total:
+    unique_id: energy_total
     name: Counter Energy Total
     source: sensor.shelly_energy_total
     cycle: monthly
