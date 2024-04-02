@@ -173,7 +173,11 @@ Now you can set up the automation and tracking is ready to go!
 
 At last, you can add the counters to track consumptions and your energy footprint with the Energy Panel!
 
-Here's an example of the Energy Panel configured with the _Multiple devices_ option:
+Here's a shortcut:
+
+[![Open your Home Assistant instance and show your Energy panel.](https://my.home-assistant.io/badges/energy.svg)](https://my.home-assistant.io/redirect/energy/)
+
+This is an example of the Energy Panel configured with the _Multiple devices_ option:
 
 ![Energy Panel](images/energy_full.png)
 
