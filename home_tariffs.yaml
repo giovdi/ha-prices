@@ -14,8 +14,8 @@ blueprint:
           filter:
             domain: input_select
     tariff_entities:
-      name: "Unit meters to automate"
-      description: "Select all the Unit meters to automate."
+      name: "Utility meters to automate"
+      description: "Select all the Utility Meters to automate. If you're using a global Utility meter for multiple devices (as described in the README) don't forget to add it."
       default: []
       selector:
         entity:
