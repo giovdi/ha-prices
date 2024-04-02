@@ -175,9 +175,7 @@ At last, you can add the counters to track consumptions and your energy footprin
 
 Here's an example of the Energy Panel configured with the _Multiple devices_ option:
 
-// IMAGE 1
-
-// IMAGE 2
+![Energy Panel](images/energy_full.png)
 
 ## Issues or suggestions?
 
