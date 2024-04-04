@@ -3,7 +3,7 @@
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 ![Project stage: Beta](https://img.shields.io/badge/project%20stage-beta-blue.svg)
 
-⚠️ THIS BLUEPRINT IS IN BETA STAGE. I started testing this Blueprint on my Home Assistant at the end of March 2024, and the tests will last for at least a couple of months. Feel free to test this on your own, but by using this Blueprint, you accept the risk of unexpected results and Utility Meters and Electricity Panel reset. Thanks for understanding!
+⚠️ THIS BLUEPRINT IS IN BETA STAGE. I started testing this Blueprint on my Home Assistant at the end of March 2024, and the tests will last for at least a few of months. Feel free to test this on your own, but by using this Blueprint, you accept the risk of unexpected results and Utility Meters and Electricity Panel reset. Thanks for understanding!
 
 ℹ️ This Blueprint is developed and based on Shelly devices, but it fits every meter.
 
