@@ -3,13 +3,13 @@
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 ![Project stage: Beta](https://img.shields.io/badge/project%20stage-beta-blue.svg)
 
-⚠️ THIS BLUEPRINT IS IN BETA STAGE - I started testing this Blueprint on my Home Assistant at the end of March 2024, and tests will last for at least a couple of months. Feel free to test this on your own, but by using this Blueprint you accept the risk of unexpected results, and Utility Meters and Electricity Panel reset. Thanks for understanding!
+⚠️ THIS BLUEPRINT IS IN BETA STAGE. I started testing this Blueprint on my Home Assistant at the end of March 2024, and the tests will last for at least a couple of months. Feel free to test this on your own, but by using this Blueprint, you accept the risk of unexpected results and Utility Meters and Electricity Panel reset. Thanks for understanding!
 
 ℹ️ This Blueprint is developed and based on Shelly devices, but it fits every meter.
 
 ## Setup
 
-⚠️ Please read everything carefully, otherwise the automation won't work properly!
+⚠️ Please read everything carefully; otherwise, the automation won't work correctly!
 
 ### 1. Basic configuration
 
@@ -44,7 +44,7 @@ input_number:
     unit_of_measurement: EUR/kWh
 ```
 
-**Current Time Band**: we'll use it in case of automation failure, to change the current band manually
+**Current Time Band**: we'll use it in case of automation failure to change the current band manually
 ```
 input_select:
   tariff_current_band:
@@ -77,7 +77,7 @@ sensor:
           {% endif %}
 ```
 
-After changing the `configuration.yaml` file, restart Home Assistant
+After changing the `configuration.yaml` file, restart Home Assistant.
 
 ### 2. Set up tariff prices
 
@@ -89,11 +89,11 @@ Shortcut:
 
 ### 3. Add Utility meters
 
-Now you can add all the Utility meters to Home Assistant through the helpers' page to automate them.
+Now, you can add all the Utility meters to Home Assistant through the helpers' page to automate them.
 
 **Don't forget to set _F1_, _F2_ and _F3_ as tariffs on each meter!**
 
-If you have multiple Utility meters to set, you may find it easier to set up them through YAML. Use the following example:
+If you have multiple Utility meters to set, you may find it easier to set them up through YAML. Use the following example:
 
 ```
 utility_meter:
@@ -113,19 +113,19 @@ You can also separate them from the configuration to a `utility_meters.yaml` fil
 `utility_meter: !include utility_meters.yaml`.  
 Remove the `utility_meter:` root in this case.
 
-If you configure the Utility meters by YALM, restart the Home Assistant.
+If you configure the Utility meters by YALM, you must restart the Home Assistant.
 
 #### - Multiple devices
 
-If you, like me, have dozens of Shelly active, you may prefer using a single Utility meter to keep track of the consumption and then a sensor for each device.
+If you, like me, have dozens of Shelly active, you may prefer using a single Utility meter to track consumption and then a sensor for each device.
 
-Unfortunately, at this time (2023.04) it's not possible to track single devices without adding them to the Energy Panel.  
-But I have a good workaround, have a look at the [![giovdi - ha-electricity-cost](https://img.shields.io/static/v1?label=giovdi&message=ha-electricity-cost&color=blue&logo=github)](https://github.com/giovdi/ha-electricity-cost) Blueprint.
+Unfortunately, at this time (2023.04), it's impossible to track single devices without adding them to the Energy Panel.  
+But I have a good workaround. Have a look at the [![giovdi - ha-electricity-cost](https://img.shields.io/static/v1?label=giovdi&message=ha-electricity-cost&color=blue&logo=github)](https://github.com/giovdi/ha-electricity-cost) Blueprint.
 
 If this fits you, you can use the following YAML to set up a single counter for all the devices:
 
 
-**Total Consumption sensor**: to keep track of the whole energy consumption (here's an example with Shellies, feel free to adjust the template value with your devices)
+**Total Consumption sensor**: to keep track of the whole energy consumption (here's an example with Shellies; feel free to adjust the template value with your devices)
 ```
 sensor:
   - platform: template
@@ -159,19 +159,19 @@ utility_meter:
       - F3
     always_available: true
 ```
-⚠️ Do not name this Utility meter sensor starting with meter_, otherwise it'll be included in the shelly_energy_total!
+⚠️ Do not name this Utility meter sensor starting with meter_; otherwise, it will be included in the shelly_energy_total!
 
 ### 4. Set up the integration
 
-Add this integration to your Home Assistant, using this button:
+Add this integration to your Home Assistant using this button:
 
 [![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fgiovdi%2Fha-prices%2Fedit%2Fmain%2Fhome_tariffs.yaml)
 
-Now you can set up the automation and tracking is ready to go!
+Now you can set up the automation, and tracking is ready to go!
 
 ### 5. Add meters to the Energy Panel
 
-At last, you can add the counters to track consumptions and your energy footprint with the Energy Panel!
+Finally, with the Energy Panel, you can add counters to track consumption and your energy footprint!
 
 Here's a shortcut:
 
