@@ -101,7 +101,7 @@ utility_meter:
     unique_id: meter_tv
     name: Counter TV
     source: sensor.shellyplus1pm_aaaaaaaaaaaa_switch_0_energy
-    cycle: monthly
+    cycle: monthly  #optional
     tariffs:
       - F1
       - F2
