@@ -152,7 +152,7 @@ utility_meter:
     unique_id: energy_total
     name: Counter Energy Total
     source: sensor.shelly_energy_total
-    cycle: monthly
+    cycle: monthly  #optional
     tariffs:
       - F1
       - F2
